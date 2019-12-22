@@ -1,0 +1,26 @@
+.header {
+    grid-area: header;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1E4091;
+}
+
+.logoSymbol, .cart {
+    padding: 0 16px
+}
+
+.cartCounter {
+    height: 23px;
+    width: 23px;
+    background-color: #F13757;
+    color: #fff;
+    border-radius: 50%;
+    border: 3px solid #1E4091;
+    box-sizing: border-box;
+    position: absolute;
+    right: 14px;
+    font-size: 10px;
+    text-align: center;
+    padding-top: 1px;
+}

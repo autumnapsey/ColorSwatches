@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'Source Serif Pro Bold';
+    src: url("../../design/Source_Serif_Pro/SourceSerifPro-Bold.ttf");
+}
+
+.title {
+    font-family: 'Source Serif Pro Bold';
+    font-size: 20px;
+    padding: 10px;
+}
+
+.colors {
+    display: flex;
+    flex-wrap: wrap;
+}

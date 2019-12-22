@@ -1,23 +1,14 @@
 // @flow
 import React from 'react';
 import { connect } from 'react-redux';
-import { compose, withHandlers, withProps } from 'recompose';
-import ReactSVG from 'react-svg';
+import { compose, withHandlers } from 'recompose';
 import styles from './ColorSquare.css';
-import saveCart from '../actions/saveCart';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 const enhance = compose(
   connect(
-    ({ cartColors, hoverColor }) => ({ cartColors, hoverColor }),
+    ({ hoverColor }) => ({ hoverColor }),
     {
-      addColor: color => ({
-        type: 'ADD_COLOR',
-        color,
-      }),
-      removeColor: color => ({
-        type: 'REMOVE_COLOR',
-        color,
-      }),
       setHoverColor: color => ({
         type: 'SET_HOVER_COLOR',
         color,
@@ -28,20 +19,7 @@ const enhance = compose(
       }),
     },
   ),
-  withProps(({ cartColors }) => ({
-    inCart: color => cartColors.includes(color),
-  })),
   withHandlers({
-    updateColor: ({
-      addColor,
-      removeColor,
-      inCart,
-      cartColors,
-    }) => color => () => {
-      // eslint-disable-next-line no-unused-expressions
-      inCart(color) ? removeColor(color) : addColor(color);
-      saveCart(cartColors);
-    },
     toggleHovering: ({
       hoverColor,
       setHoverColor,
@@ -55,32 +33,22 @@ const enhance = compose(
 
 const ColorSquare = ({
   color,
-  updateColor,
-  inCart,
   toggleHovering,
-  hoverColor,
 }: {
   color: String,
-  updateColor: Function,
-  inCart: Function,
   toggleHovering: Function,
-  hoverColor: String,
 }) => (
-  // eslint-disable-next-line jsx-a11y/no-static-element-interactions
-  <div
-    className={`${styles.color} ${inCart(color) ? styles.inCart : ''}`}
-    style={{ backgroundColor: color }}
-    onClick={updateColor(color)}
-    onMouseEnter={toggleHovering(color)}
-    onMouseLeave={toggleHovering(color)}
-  >
-    {inCart(color) && hoverColor === color ? (
-      <span className={styles.trash}>X</span>
-    ) : (
-      ''
-    )}
-    <span>{color}</span>
-  </div>
+  <Link to={`/profile/${color}`}>
+    <div
+      className={styles.color}
+      style={{ backgroundColor: '#' + color }}
+      onMouseEnter={toggleHovering(color)}
+      onMouseLeave={toggleHovering(color)}
+    >
+      <span>{'#' + color}</span>
+    </div>
+  </Link>
+
 );
 
 export default enhance(ColorSquare);

@@ -23,7 +23,7 @@ body, main {
     grid-template-areas:
             "header"
             "main";
-    background-color: #EFEFEF;
+    background-color: #ffffff;
 }
 
 .main {

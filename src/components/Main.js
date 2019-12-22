@@ -5,7 +5,7 @@ import { compose, lifecycle, withHandlers, withProps } from 'recompose';
 import { Route } from 'react-router-dom';
 import styles from '../style.css';
 import List from './List';
-import Cart from './Cart';
+import Profile from './Profile';
 
 const enhance = compose(
   connect(
@@ -44,7 +44,7 @@ const enhance = compose(
 const Main = ({ onRef }: { onRef: Function }) => (
   <div className={styles.main} ref={onRef}>
     <Route exact path="/" component={List} />
-    <Route exact path="/cart" component={Cart} />
+    <Route exact path="/profile/:color" component={Profile} />
   </div>
 );
 

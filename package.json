@@ -6,8 +6,6 @@
   "license": "MIT",
   "scripts": {
     "build": "webpack --env production",
-    "server": "nodemon server.js",
-    "dev": "webpack --mode development && node server.js",
     "start": "nodemon --watch webpack.config.js --exec \"webpack-dev-server --mode development\"",
     "precommit": "lint-staged",
     "lint": "eslint --fix"

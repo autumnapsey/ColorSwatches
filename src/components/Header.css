@@ -3,7 +3,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #1E4091;
+    background-color: #363c3c;
 }
 
 .logoSymbol, .cart {
@@ -16,7 +16,7 @@
     background-color: #F13757;
     color: #fff;
     border-radius: 50%;
-    border: 3px solid #1E4091;
+    border: 3px solid #363c3c;
     box-sizing: border-box;
     position: absolute;
     right: 14px;

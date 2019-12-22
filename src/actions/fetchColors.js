@@ -24,8 +24,8 @@ const fetchColors = num => {
     'F',
   ];
   while (uniqueHexCodes.length < num) {
-    let color = '#';
-    while (color.length < 7) {
+    let color = '';
+    while (color.length < 6) {
       color += hexLang[Math.floor(Math.random() * hexLang.length)];
     }
     if (!uniqueHexCodes.includes(color)) {

@@ -9,10 +9,10 @@ import Profile from './Profile';
 
 const enhance = compose(
   connect(
-    ({ squaresTotal }) => ({ squaresTotal }),
+    ({ squaresPerPage }) => ({ squaresPerPage }),
     {
-      setSquareTotal: squares => ({
-        type: 'SET_SQUARE_TOTAL',
+      setSquaresPerPage: squares => ({
+        type: 'SET_SQUARES_PER_PAGE',
         squares,
       }),
     },
@@ -29,13 +29,13 @@ const enhance = compose(
   lifecycle({
     componentDidMount() {
       const squaresWidth = Math.floor(
-        this.props.container().getBoundingClientRect().width / 143,
+        this.props.container().getBoundingClientRect().width / 182,
       );
-      const squaresHeight = Math.ceil(
-        this.props.container().getBoundingClientRect().height / 142,
+      const squaresHeight = Math.floor(
+        this.props.container().getBoundingClientRect().height / 182,
       );
-      const squaresTotal = squaresWidth * squaresHeight;
-      this.props.setSquareTotal(squaresTotal);
+      const squaresPerPage = squaresWidth * squaresHeight;
+      this.props.setSquaresPerPage(squaresPerPage);
     },
   }),
   withProps(),

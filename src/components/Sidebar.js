@@ -2,7 +2,7 @@
 import React from 'react';
 import styles from './Sidebar.css';
 import { withRouter } from 'react-router-dom';
-import { randomColor } from '../actions/generateColors';
+import { randomColor } from '../utility/generateColors';
 
 const Sidebar = ({ history }) => (
   <div className={styles.sidebar}>

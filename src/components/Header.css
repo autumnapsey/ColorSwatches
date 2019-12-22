@@ -6,21 +6,6 @@
     background-color: #363c3c;
 }
 
-.logoSymbol, .cart {
+.logoSymbol {
     padding: 0 16px
-}
-
-.cartCounter {
-    height: 23px;
-    width: 23px;
-    background-color: #F13757;
-    color: #fff;
-    border-radius: 50%;
-    border: 3px solid #363c3c;
-    box-sizing: border-box;
-    position: absolute;
-    right: 14px;
-    font-size: 10px;
-    text-align: center;
-    padding-top: 1px;
 }

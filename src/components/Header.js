@@ -12,8 +12,8 @@ const Header = () => (
         <ReactSVG src={LogoSymbol} />
       </Link>
     </div>
-    <div className={styles.cart}>
-      cart
+    <div className={styles.search}>
+      search bar
     </div>
   </div>
 );

@@ -9,15 +9,14 @@ import {
   withHandlers,
 } from 'recompose';
 import styles from './List.css';
-import { fetchColors } from '../actions/generateColors';
+import { fetchColors } from '../utility/generateColors';
 import ColorSquare from './ColorSquare';
-import updateColorOptions from '../actions/updateColorOptions';
 
 const enhance = compose(
   connect(
-    ({ colorOptions, squaresTotal, cartColors }) => ({
+    ({ colorOptions, squaresPerPage, cartColors }) => ({
       colorOptions,
-      squaresTotal,
+      squaresPerPage,
       cartColors,
     }),
     {
@@ -27,18 +26,16 @@ const enhance = compose(
       }),
     },
   ),
-  branch(({ squaresTotal }) => squaresTotal === 0, renderNothing),
+  branch(({ squaresPerPage }) => squaresPerPage === 0, renderNothing),
   withHandlers({
-    loadMore: ({ squaresTotal, populateColorOptions }) => () => () => {
-       populateColorOptions(fetchColors(squaresTotal))
+    loadMore: ({ squaresPerPage, populateColorOptions }) => () => () => {
+      console.log(fetchColors(squaresPerPage))
+      populateColorOptions(fetchColors(squaresPerPage))
     },
   }),
   lifecycle({
     componentDidMount() {
-        this.props.populateColorOptions(fetchColors(this.props.squaresTotal * 2))
-    },
-    componentWillUnmount() {
-      updateColorOptions();
+        this.props.populateColorOptions(fetchColors(this.props.squaresPerPage))
     },
   }),
 );

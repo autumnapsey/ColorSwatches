@@ -40,12 +40,14 @@ const ColorSquare = ({
 }) => (
   <Link to={`/profile/${color}`}>
     <div
-      className={styles.color}
-      style={{ backgroundColor: '#' + color }}
+      className={styles.square}
       onMouseEnter={toggleHovering(color)}
       onMouseLeave={toggleHovering(color)}
     >
-      <span>{'#' + color}</span>
+      <div className={styles.color}
+        style={{ backgroundColor: '#' + color }}
+      ></div>
+      <span className={styles.label}>{'#' + color}</span>
     </div>
   </Link>
 

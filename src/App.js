@@ -6,6 +6,7 @@ import styles from './style.css';
 import store from './store';
 import Header from './components/Header';
 import Main from './components/Main';
+import Sidebar from './components/Sidebar';
 
 const browserHistory = createBrowserHistory();
 
@@ -15,6 +16,7 @@ const App = () => (
       <Router history={browserHistory}>
         <div className={styles.app}>
           <Header />
+          <Sidebar />
           <Main />
         </div>
       </Router>

@@ -9,7 +9,7 @@ import {
   withHandlers,
 } from 'recompose';
 import styles from './List.css';
-import fetchColors from '../actions/fetchColors';
+import { fetchColors } from '../actions/generateColors';
 import ColorSquare from './ColorSquare';
 import updateColorOptions from '../actions/updateColorOptions';
 

@@ -1,15 +1,47 @@
 @font-face {
+    font-family: 'Source Serif Pro';
+    src: url("../../design/Source_Serif_Pro/SourceSerifPro-Regular.ttf");
+}
+
+@font-face {
     font-family: 'Source Serif Pro Bold';
     src: url("../../design/Source_Serif_Pro/SourceSerifPro-Bold.ttf");
 }
 
-.title {
-    font-family: 'Source Serif Pro Bold';
-    font-size: 20px;
-    padding: 10px;
+.profile {
+    margin: 10px;
 }
 
-.colors {
+.swatch {
+    border: 1px solid #000000;
+    padding: 0;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.color {
+    height: 400px;
+}
+
+.label {
+    font-family: 'Source Serif Pro', serif;
+    font-size: 24px;
+    padding: 20px;
+}
+
+.clearContainer {
     display: flex;
-    flex-wrap: wrap;
+    justify-content: center;
+    margin: 18px;
+}
+
+.clear {
+    border: 1px solid #000000;
+    border-radius: 6px;
+    font-family: 'Source Serif Pro Bold';
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 75px;
 }

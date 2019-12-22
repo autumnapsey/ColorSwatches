@@ -1,0 +1,22 @@
+.sidebar {
+    grid-area: sidebar;
+    background-color: #D6D8D8;
+}
+
+.randomContainer {
+    display: flex;
+    justify-content: center;
+    margin: 18px;
+}
+
+.random {
+    border: 1px solid #000000;
+    border-radius: 6px;
+    font-family: 'Source Serif Pro Bold';
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 25px;
+    background-color: #ffffff;
+}

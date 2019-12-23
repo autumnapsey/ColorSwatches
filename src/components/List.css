@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Source Serif Pro Bold';
+    src: url("../../design/Source_Serif_Pro/SourceSerifPro-Bold.ttf");
+}
+
 .list {
     display: flex;
     flex-wrap: wrap;
@@ -11,17 +16,13 @@
     margin: 10px;
 }
 
-.button {
-    height: 40px;
-    width: 140px;
-    background-color: #1E4091;
-    color: #fff;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    font-size: 13px;
+.pageNumber {
+    padding: 10px;
+}
+
+.currentPage {
+    font-family: 'Source Serif Pro Bold', serif;
+    text-decoration: underline;
 }
 
 .list>div:last-child {

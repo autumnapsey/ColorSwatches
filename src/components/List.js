@@ -7,6 +7,7 @@ import {
   branch,
   renderNothing,
   withHandlers,
+  withProps,
 } from 'recompose';
 import styles from './List.css';
 import { fetchColors } from '../utility/generateColors';
@@ -14,47 +15,64 @@ import ColorSquare from './ColorSquare';
 
 const enhance = compose(
   connect(
-    ({ colorOptions, squaresPerPage, cartColors }) => ({
+    ({ colorOptions, squaresPerPage, currentPage }) => ({
       colorOptions,
       squaresPerPage,
-      cartColors,
+      currentPage,
     }),
     {
       populateColorOptions: colors => ({
         type: 'POPULATE_COLOR_OPTIONS',
         colors,
       }),
+      changeCurrentPage: pageNumber => ({
+        type: 'CHANGE_CURRENT_PAGE',
+        pageNumber,
+      }),
     },
   ),
   branch(({ squaresPerPage }) => squaresPerPage === 0, renderNothing),
   withHandlers({
-    loadMore: ({ squaresPerPage, populateColorOptions }) => () => () => {
-      console.log(fetchColors(squaresPerPage))
-      populateColorOptions(fetchColors(squaresPerPage))
+    loadMore: ({ changeCurrentPage }) => (pageSelection) => () => {
+      console.log(pageSelection)
+      changeCurrentPage(pageSelection)
     },
   }),
   lifecycle({
     componentDidMount() {
-        this.props.populateColorOptions(fetchColors(this.props.squaresPerPage))
+        this.props.populateColorOptions(fetchColors(100))
     },
   }),
+  withProps(({ colorOptions, squaresPerPage, currentPage }) => (
+    ({ pageSelection: () => {
+      const colorBegin = currentPage * squaresPerPage;
+      const colorEnd = colorBegin + squaresPerPage;
+      return colorOptions.slice(colorBegin, colorEnd) 
+      },
+      totalPages: Array.from(Array(Math.ceil(colorOptions.length / squaresPerPage)).keys()),
+    })
+  ))
 );
 
 const List = ({
-  colorOptions,
+  pageSelection,
   loadMore,
+  totalPages,
+  currentPage,
 }: {
-  colorOptions: Array,
+  pageSelection: Array,
   loadMore: Function,
 }) => (
   <div className={styles.list}>
-    {colorOptions.map(option => (
+    {pageSelection().map(option => (
       <ColorSquare color={option} key={option} />
     ))}
     <div className={styles.load}>
-      <button onClick={loadMore()} className={styles.button}>
-        Load More
-      </button>
+      {totalPages.map( i =>
+      <span key={i} onClick={loadMore(i)} className={`${styles.pageNumber} ${currentPage === i ? styles.currentPage : ''}`}>
+      {i + 1}
+    </span>
+      )}
     </div>
   </div>
 );

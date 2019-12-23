@@ -43,7 +43,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.clear a  {
     padding: 10px 75px;
+    flex-grow: 2;
+    flex-basis: auto;
 }
 
 .clear:hover {

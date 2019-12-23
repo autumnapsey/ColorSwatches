@@ -9,3 +9,13 @@
 .logoSymbol {
     padding: 0 16px
 }
+
+.searchBar {
+    border: none;
+    border-radius: 6px;
+    font-family: 'Source Serif Pro';
+    font-size: 12px;
+    padding: 10px;
+    margin-right: 25px;
+    background-color: #ffffff;
+}

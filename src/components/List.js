@@ -34,7 +34,6 @@ const enhance = compose(
   branch(({ squaresPerPage }) => squaresPerPage === 0, renderNothing),
   withHandlers({
     loadMore: ({ changeCurrentPage }) => (pageSelection) => () => {
-      console.log(pageSelection)
       changeCurrentPage(pageSelection)
     },
   }),
@@ -69,7 +68,9 @@ const List = ({
     ))}
     <div className={styles.load}>
       {totalPages.map( i =>
-      <span key={i} onClick={loadMore(i)} className={`${styles.pageNumber} ${currentPage === i ? styles.currentPage : ''}`}>
+      <span key={i} onClick={loadMore(i)} 
+      className={
+        `${styles.pageNumber} ${currentPage === i ? styles.currentPage : ''}`}>
       {i + 1}
     </span>
       )}
